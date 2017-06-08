@@ -1,5 +1,6 @@
 import {Editor} from "./Editor"
 import {Schema} from "../json-schema/Schema"
+import {HTMLElementFacade} from "./util/HTMLElementFacade"
 
 
 export abstract class AbstractEditor<T> implements Editor<T> {
@@ -10,7 +11,7 @@ export abstract class AbstractEditor<T> implements Editor<T> {
 		this.schema = schema
 	}
 
-	abstract fetch(element:HTMLElement):T
+	abstract fetch(element:HTMLElementFacade):T
 
-	abstract render(element:HTMLElement):void
+	abstract render(element:HTMLElementFacade):void
 }
