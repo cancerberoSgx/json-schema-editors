@@ -1,10 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-// we can start structuring our project using typescript ! :)
 var Point_1 = require("./basic/Point");
 var p = new Point_1.Point(1, 2);
 console.log('point', p);
-console.log(require('./templates/t1')());
+var t1_1 = require("./templates/t1");
+console.log(t1_1.default());
 var json = require("../test-files/schema1.json");
 var parser = require("json-schema-parser");
 var schema = parser.parse(json);

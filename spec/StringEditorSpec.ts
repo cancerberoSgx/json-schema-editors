@@ -14,7 +14,6 @@ describe('StringEditor', ()=>
 		spyOn(el, 'setHtml')
 		expect(el.setHtml).not.toHaveBeenCalled()
 		ed.render(el)
-		debugger;
 		expect(el.setHtml).toHaveBeenCalled()
 		expect(el.setHtml).toHaveBeenCalledWith('hello')
 	})

@@ -7,28 +7,27 @@
 
 the idea is to be able to write code using ts, being able to require pure js libraries, and be able to use browserify and brfs utility like to go to the browser. Also have some unit test with jasmine that run in node
 
-##run it in node
+## run it in node
 
-	tsc src/index.ts
-	node src/
+	tsc && node src
+	# or run the specs:
+	tsc && node spec
 
 ## run it in ts-node
 
+(ts-node is like node but it will work directly with .ts files)
+
 	ts-node spec/index.ts
 
-## run specs in node
+## debug specs with devtool
 
-(specs written with jasmine)
+First you need to install devtool (visual node debugger based on chrome developer tools)
 
-```
-	tsc spec/*.ts && npm test
-```
+	sudo npm install -g devtool
 
-## run specs in ts-node
+Following, just add a ```debugger````statement in your .ts code where you want to stop and execute:
 
-```
-	ts-node spec/index.ts
-```
+	tsc && devtool spec
 
 ## browser
 
@@ -37,12 +36,8 @@ the idea is to be able to write code using ts, being able to require pure js lib
 	browserify -o dist/bundle.js -p tsify -t brfs --debug src/index.ts
 	firefox dist/index.html
 
+Little explanation: For run our code in the browser we need the help of browserify and its tsify and brfs extensions and plugins. It will compile the index file into a big bundle.js file that contains all dependencies. The html file just load it. you could also run bundle.js with node: 
 
-## browserify bundle in node
-
-(same as before but run it in node)
-
-	browserify -o dist/bundle.js -p tsify -t brfs --debug src/index.ts
 	node dist/bundle.js
 
 ## development framework
